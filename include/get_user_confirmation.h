@@ -1,34 +1,23 @@
-/*
-    ¸ÃÎÄ¼ş´Ó±ê×¼ÊäÈë¶ÁÈëÊÇ·ñÊÇyesÓëno,Ö±µ½¶Áµ½yes»òÕßno»òÕß³ÌĞòÍË³ö²Å·µ»Ø
-*/
+/**
+ * @file get_user_confirmation.h
+ * @brief ä»æ ‡å‡†è¾“å…¥è¯»å…¥æ˜¯å¦æ˜¯yesä¸no,ç›´åˆ°è¯»åˆ°yesæˆ–è€…noæˆ–è€…ç¨‹åºé€€å‡ºæ‰è¿”å›
+ * @version 0.1
+ * @date 2023-06-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #ifndef _COMMAND_YES_NO_H_
 #define _COMMAND_YES_NO_H_
 
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
 /*
-    ·µ»ØÖµ:
-        ==  1 ´Ó±ê×¼ÊäÈë¶ÁÁËyes
-        ==  0 ´Ó±ê×¼ÊäÈë¶ÁÈëÁËno
+    è¿”å›å€¼:
+        ==  1 ä»æ ‡å‡†è¾“å…¥è¯»äº†yes
+        ==  0 ä»æ ‡å‡†è¾“å…¥è¯»å…¥äº†no
 */
- int getUserConfirmation()
-{
-    char buf[128];
-    int len = 0;
-    int c;
-
-
-    buf[0] = 'n';
-    while((c = getchar()) != EOF && c != '\n')
-        if((len > 0 && len < 127) || (len == 0 && !isspace (c)))    /* ÕâÀï³ıµôÁËÇ°ÃæµÄ¿Õ¸ñ */
-            buf[len++] = c;
-
-    buf[len] = 0;
-    if(buf[0] == 'y' || buf[0] == 'Y')
-        return 1;
-
-    return 0;
-}
+int getUserConfirmation();
 
 #endif
