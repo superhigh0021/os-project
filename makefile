@@ -4,23 +4,6 @@ CC = gcc
 STATIC = ar rcs
 CFLAGS = -g
 
-# SOURCE = $(wildcard *.c)
-# LINK = -lpcre -lm
-# PROGS = $(patsubst %.c,%,$(SOURCE))
-
-
-
-# all:	${PROGS}
-
-# $(PROGS):	clean	$(patsubst %,%.c,$@)
-# 	$(CC) $(CFLAGS) -o $@ $(patsubst %,%.c,$@) $(LINK)
-
-# rebuild: clean	$(PROGS)
-	
-
-# clean:
-# 	rm -fr *.o *.pre ./include/*.pre $(PROGS)
-
 all :my_type my_copy my_dir my_mkdir my_move my_rm my_ren my_sort
 
 
@@ -78,12 +61,11 @@ libren_src.a: ren_src.o file_isexist.o
 	$(STATIC) ./lib/$@ file_isexist.o
 
 my_sort: my_sort.c libsort_src.a
-	$(CC) $(CFLAGS) -o ./out/my_sort my_sort.c -L ./lib -lsort_src -lpcre
+	$(CC) $(CFLAGS) -o ./out/my_sort my_sort.c -L ./lib -lsort_src
 
-libsort_src.a: sort_src.o is_digit.o str_match.o err_msg.o
+libsort_src.a: sort_src.o is_digit.o err_msg.o
 	$(STATIC) ./lib/$@ sort_src.o
 	$(STATIC) ./lib/$@ is_digit.o
-	$(STATIC) ./lib/$@ str_match.o
 	$(STATIC) ./lib/$@ err_msg.o
 
 %.o:%.c

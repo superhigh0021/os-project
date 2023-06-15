@@ -9,7 +9,6 @@
 
 #include "common_data.h"
 #include "is_digit.h"
-#include "str_match.h"
 
 #define MAX_LINE_NUM 8192 // 能处理的最大行数
 
