@@ -25,7 +25,7 @@ void init_option(struct sort_option *op) {
   op->n = 0;
   op->r = 0;
   op->t = '\t';
-  op->k = 0;
+  op->k = 1;
   op->f = 0;
 }
 
@@ -123,7 +123,7 @@ void get_field(char *buf) {
   sprintf(sep, "%c", g_op.t);
 
   line_data = strtok(buf, sep);
-  while (line_data != NULL && field_num-- > 0) {
+  while (line_data != NULL && --field_num > 0) {
     line_data = strtok(NULL, sep);
   }
 

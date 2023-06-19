@@ -13,7 +13,7 @@
 #define MAX_LINE_NUM 8192 // 能处理的最大行数
 
 struct sort_option {
-  unsigned char n; // 以数字进行排序(0:字母排序1:数据排序)
+  unsigned char n; // 以数字进行排序
   unsigned char r; // 逆向排序
   unsigned char t; // 分隔符，默认为'\t'
   unsigned char k; // 以第几个区间排序，默认为0
